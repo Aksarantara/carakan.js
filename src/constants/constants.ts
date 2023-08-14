@@ -22,7 +22,7 @@ namespace CarakanConst {
     CONSONANTS_WITHOUT_PANYIGEG: `dh|ny|th|kh|dz|sy|gh|NY|[nckdtswlpjymgbzfvNKTSPGB]`,
     DIGITS: `[\\d]`,
     DIGITS_PUNC: `[\\d]+|[:()'"|<>{}?!]`,
-    DOT_COMMA: `[.,]`,
+    DOT_COMMA: `[.,_]`,
     SPACE: `[\\u0020]`,
     VOWELS: `[aiueoxAIUEOXÉÊÈéêè]`,
     VOWELS_SWARA: `[AIUEO]`,
@@ -40,7 +40,8 @@ namespace CarakanConst {
     CONSONANT_SIGN: `[\\uA9BE-\\uA9BF]`,
     PANGKON: `[\\uA9C0]`,
     PADA: `[\\uA9C1-\\uA9C6\\uA9C8-\\uA9CF]`, 
-    PANGKAT: `[\\uA9C7]`
+    PANGKAT: `[\\uA9C7]`,
+    SPACE: `[\\u0020\\u200C]`
   };
 
   export const REGEX = {
@@ -60,7 +61,7 @@ namespace CarakanConst {
     ].join(""),
 
     CAPTURE_CARAKAN: [
-      `(${LATIN.SPACE})`,
+      `(${CARAKAN.SPACE})`,
       `|(?:${CARAKAN.PANGKAT})?(${CARAKAN.ANGKA})(?:${CARAKAN.PANGKAT})?`,
       `|(${CARAKAN.NGLEGENA})(${CARAKAN.CECAK_TELU})?(${CARAKAN.PANGKON})?(${CARAKAN.CONSONANT_SIGN})?(${CARAKAN.SANDHANGAN})?(${CARAKAN.SANDHANGAN})?(${CARAKAN.SANDHANGAN_FINAL})?`,
       `|(${CARAKAN.SWARA})`,
@@ -226,7 +227,7 @@ namespace CarakanChars {
   };
 
   export const MISC: CharacterMapping = {
-    zwnj: "‌",
+    '_': "‌",
   }
 };
 

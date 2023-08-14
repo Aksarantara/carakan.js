@@ -19,6 +19,12 @@ describe("Basic functionality tests for Latin -> Carakan", () => {
     expect(result).toEqual(expected);
   });
 
+  it("should convert _ to zwnj", () => {
+    const result = toJavanese("kyai_pangling_kalih_santri_ingkang_srxgxp_nalika_sasi_ruwah");
+    const expected = "ꦏꦾꦲꦶ\u200Cꦥꦁꦭꦶꦁ\u200Cꦏꦭꦶꦃ\u200Cꦱꦤ꧀ꦠꦿꦶ\u200Cꦲꦶꦁꦏꦁ\u200Cꦱꦽꦒꦼꦥ꧀\u200Cꦤꦭꦶꦏ\u200Cꦱꦱꦶ\u200Cꦫꦸꦮꦃ";
+    expect(result).toEqual(expected);
+  });
+
   it("should convert all Pasangan of 20 basic characters", () => {
     const result = toJavanese("alhalnalcal ralkal daltalsalwallal paldhaljalyalnyal malgalbalthalnga");
     const expected = "ꦲꦭ꧀ꦲꦭ꧀ꦤꦭ꧀ꦕꦭ꧀ꦫꦭ꧀ꦏꦭ꧀ꦢꦭ꧀ꦠꦭ꧀ꦱꦭ꧀ꦮꦭ꧀ꦭꦭ꧀ꦥꦭ꧀ꦝꦭ꧀ꦗꦭꦾꦭ꧀ꦚꦭ꧀ꦩꦭ꧀ꦒꦭ꧀ꦧꦭ꧀ꦛꦭ꧀ꦔ";
@@ -171,6 +177,12 @@ describe("Basic functionality tests for Carakan -> Latin", () => {
     expect(result).toEqual(expected);
   });
 
+  it("should convert zwnj to space", () => {
+    const result = toLatin("ꦏꦾꦲꦶ\u200Cꦥꦁꦭꦶꦁ\u200Cꦏꦭꦶꦃ\u200Cꦱꦤ꧀ꦠꦿꦶ\u200Cꦲꦶꦁꦏꦁ\u200Cꦱꦽꦒꦼꦥ꧀\u200Cꦤꦭꦶꦏ\u200Cꦱꦱꦶ\u200Cꦫꦸꦮꦃ");
+    const expected = "kyahi pangling kalih santri hingkang sregep nalika sasi ruwah";
+    expect(result).toEqual(expected);
+  });
+
   it("should convert all Pasangan of 20 basic characters", () => {
     const result = toLatin("ꦲꦭ꧀ꦲꦭ꧀ꦤꦭ꧀ꦕꦭ꧀ꦫꦭ꧀ꦏꦭ꧀ꦢꦭ꧀ꦠꦭ꧀ꦱꦭ꧀ꦮꦭ꧀ꦭꦭ꧀ꦥꦭ꧀ꦝꦭ꧀ꦗꦭꦾꦭ꧀ꦚꦭ꧀ꦩꦭ꧀ꦒꦭ꧀ꦧꦭ꧀ꦛꦭ꧀ꦔ");
     const expected = "halhalnalcalralkaldaltalsalwallalpaldhaljalyalnyalmalgalbalthalnga";
@@ -253,12 +265,6 @@ describe("Advanced functionality tests for Carakan -> Latin", () => {
 });
 
 describe("Tests with miscellaneous sentences for Carakan -> Latin", () => {
-  it("should convert this sentence correctly (1)", () => {
-    const result = toLatin("ꦄꦩ꧀‌ꦱ꧀ꦠꦼꦂꦢꦩ꧀ꦤꦺꦴꦠ꧀ꦄꦩ꧀ꦱ꧀ꦠꦼꦂꦢꦩ꧀");
-    const expected = "AmsterdamnotAmsterdam";
-    expect(result).toEqual(expected);
-  });
-
   it("should convert this sentence correctly (2)", () => {
     const result = toLatin("ꦗꦼꦂ ꦧꦱꦸꦏꦶ ꦩꦮ ꦧꦺꦪ");
     const expected = "jer basuki mawa béya";

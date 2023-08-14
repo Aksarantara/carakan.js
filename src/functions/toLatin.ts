@@ -3,7 +3,6 @@ import { CarakanConst } from "../constants/constants";
 import LatinHelper from "../helpers/LatinHelper";
 import { SyllableBuilder2 } from "../helpers/SyllableBuilder";
 
-
 /**
  * @function toLatin
  * @description Transliterate a string in Javanese characters into its corresponding form in Latin.
@@ -30,7 +29,7 @@ export const toLatin = (input: string): string => {
         output += getTransliteration(group)
       }
     }
-    return output;
+    return output.replace(/\s{2,}/g, " ");
   };
   
   /**
@@ -39,7 +38,7 @@ export const toLatin = (input: string): string => {
   const getTransliteration = (groups: RegExpMatchArray): string => {
     /* Assign each capture groups into variable names */
     const [space, angka, ngalagena, cecak_telu, pangkon, con_sign, sandhangan1, sandhangan2, sandhangan_final, swara, pada] = groups.slice(1, 12)
-    console.log(`sp: ${space}, ctl: ${cecak_telu}, agk: ${angka}, ng: ${ngalagena}, pgk: ${pangkon}, csg: ${con_sign}, san1: ${sandhangan1}, san2: ${sandhangan2}, sf: ${sandhangan_final}, sw: ${swara}, pd: ${pada}`)
+    // console.log(`sp: ${space}, ctl: ${cecak_telu}, agk: ${angka}, ng: ${ngalagena}, pgk: ${pangkon}, csg: ${con_sign}, san1: ${sandhangan1}, san2: ${sandhangan2}, sf: ${sandhangan_final}, sw: ${swara}, pd: ${pada}`)
 
     const builder = new SyllableBuilder2();
   

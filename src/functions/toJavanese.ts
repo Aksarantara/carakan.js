@@ -105,9 +105,15 @@ const getTransliteration = (matchGroups: RegExpMatchArray, residue: string, isLa
   if (dot_or_comma != null) {
     if (dot_or_comma === ",") {
       if (consonant_final != null) {
-        builder.nonLetter = CarakanHelper.getMain(consonant_final) + CarakanHelper.getFinal("pangkon") + CarakanHelper.getMisc("zwnj");
+        builder.nonLetter = CarakanHelper.getMain(consonant_final) + CarakanHelper.getFinal("pangkon") + CarakanHelper.getMisc("_");
       } else {
         builder.nonLetter = CarakanHelper.getPunctuation(",");
+      }
+    } else if (dot_or_comma === "_") {
+      if (consonant_final != null) {
+        builder.nonLetter = CarakanHelper.getMain(consonant_final) + CarakanHelper.getFinal("pangkon") + CarakanHelper.getMisc("_");
+      } else {
+        builder.nonLetter = CarakanHelper.getMisc(dot_or_comma)
       }
     } else {
       if (consonant_final != null) {
