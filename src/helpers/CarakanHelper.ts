@@ -12,7 +12,7 @@ namespace CarakanHelper {
     export const isDigit = (str: string): boolean => {
       return RegExp(CarakanConst.LATIN.DIGITS, "g").test(str);
     };
-  
+
     /**
      * @description Returns true if the input is a space
      * @param str The string to be checked

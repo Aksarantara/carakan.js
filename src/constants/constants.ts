@@ -39,7 +39,7 @@ namespace CarakanConst {
     SANDHANGAN: `[\\uA9B4-\\uA9BD]`,
     CONSONANT_SIGN: `[\\uA9BE-\\uA9BF]`,
     PANGKON: `[\\uA9C0]`,
-    PADA: `[\\uA9C1-\\uA9C6\\uA9C8-\\uA9CF]`, 
+    PADA: `[\\uA9C1-\\uA9C6\\uA9C8-\\uA9CF]`,
     PANGKAT: `[\\uA9C7]`,
     SPACE: `[\\u0020\\u200C]`
   };

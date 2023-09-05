@@ -171,6 +171,12 @@ describe("Basic functionality tests for Carakan -> Latin", () => {
     expect(result).toEqual(expected);
   });
 
+  it("should convert all Sandhangan Swara in reversible mode", () => {
+    const result = toLatin("ꦱꦼꦭꦶꦏꦸꦂ ꦏꦢꦺꦴꦤꦺ", true);
+    const expected = "sxlikur kadone";
+    expect(result).toEqual(expected);
+  });
+
   it("should convert all Sandhangan Wyanjana", () => {
     const result = toLatin("ꦏꦾꦲꦶ ꦥꦁꦭꦶꦁ ꦏꦭꦶꦃ ꦱꦤ꧀ꦠꦿꦶ ꦲꦶꦁꦏꦁ ꦱꦽꦒꦼꦥ꧀ ꦤꦭꦶꦏ ꦱꦱꦶ ꦫꦸꦮꦃ");
     const expected = "kyahi pangling kalih santri hingkang sregep nalika sasi ruwah";
@@ -222,6 +228,12 @@ describe("Basic functionality tests for Carakan -> Latin", () => {
   it("should convert sonorant sound 'r' into Cakra and Cakra Keret", () => {
     const result = toLatin("ꦏꦽꦠꦼꦒ꧀ ꦥꦿꦶꦪꦪꦶ ꦥꦿꦠꦩ ꦏꦿꦺꦠ ꦧꦿꦸꦠꦸ ꦏꦿꦺꦴꦠꦺꦴ");
     const expected = "kreteg priyayi pratama kréta brutu kroto";
+    expect(result).toEqual(expected);
+  });
+
+  it("reversible pepet and taling should work for kre", () => {
+    const result = toLatin("ꦏꦽꦠꦼꦒ꧀ ꦥꦿꦶꦪꦪꦶ ꦥꦿꦠꦩ ꦏꦿꦺꦠ ꦧꦿꦸꦠꦸ ꦏꦿꦺꦴꦠꦺꦴ", true);
+    const expected = "krxtxg priyayi pratama kreta brutu kroto";
     expect(result).toEqual(expected);
   });
 });
