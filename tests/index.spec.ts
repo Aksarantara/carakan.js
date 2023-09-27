@@ -1,4 +1,4 @@
-import { toJavanese, toLatin } from "../src";
+import { toJavanese, toLatin, toStandardLatin } from "../src";
 
 describe("Basic functionality tests for Latin -> Carakan", () => {
   it("should convert all 20 Aksara Nglegena", () => {
@@ -177,6 +177,12 @@ describe("Basic functionality tests for Carakan -> Latin", () => {
     expect(result).toEqual(expected);
   });
 
+  it("toStandardLatin should work", () => {
+    const result = toStandardLatin("sxlikur kadone");
+    const expected = "selikur kadoné";
+    expect(result).toEqual(expected);
+  });
+
   it("should convert all Sandhangan Wyanjana", () => {
     const result = toLatin("ꦏꦾꦲꦶ ꦥꦁꦭꦶꦁ ꦏꦭꦶꦃ ꦱꦤ꧀ꦠꦿꦶ ꦲꦶꦁꦏꦁ ꦱꦽꦒꦼꦥ꧀ ꦤꦭꦶꦏ ꦱꦱꦶ ꦫꦸꦮꦃ");
     const expected = "kyahi pangling kalih santri hingkang sregep nalika sasi ruwah";
@@ -251,7 +257,8 @@ describe("Advanced functionality tests for Carakan -> Latin", () => {
     expect(result).toEqual(expected);
   });
 
-  it("should convert all punctuations", () => { /* Ignore pangkat and "()" */
+  it("should convert all punctuations", () => {
+    /* Ignore pangkat and "()" */
     const result = toLatin("꧁꧌꧋꧋꧈꧉꧊꧊꧍꧂");
     const expected = '{<||,."">}';
     expect(result).toEqual(expected);
